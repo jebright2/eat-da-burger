@@ -3,7 +3,7 @@
 ### URL
 https://arcane-brook-03832.herokuapp.com/
 
-![Screenshot of App](/assets/images/imageofApp.PNG)
+![Screenshot of App](/public/assets/images/imageofApp.PNG)
 
 ### Overview
 
