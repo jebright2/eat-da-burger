@@ -3,6 +3,8 @@
 ### URL
 https://arcane-brook-03832.herokuapp.com/
 
+![Screenshot of App](/assets/images/imageofApp.PNG)
+
 ### Overview
 
 * Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
