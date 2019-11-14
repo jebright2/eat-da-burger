@@ -8,7 +8,7 @@ function createQmarks(num) {
     return arr.toString();
 }
 
-function translateSql(obj) {
+function translateSql(ob) {
     var arr = [];
     for(var key in ob) {
         var value = ob[key];
@@ -25,42 +25,41 @@ function translateSql(obj) {
 var orm = {
     selectAll: function(table, cb) {
         var dbQuery = "SELECT * FROM " + table + ";";
-
-        connection.query(dbQuery, function(err, res) {
+        connection.query(dbQuery, function(err, result) {
             if(err) {
                 throw err;
             }
-            cb(res);
-        })
+            cb(result);
+        });
     },
     insertOne: function(table, cols, vals, cb) {
         var dbQuery = "INSERT INTO " + table + " (" + cols.toString() + ") " +
          "VALUES (" + createQmarks(vals.length) + ") ";
 
          console.log(dbQuery);
-         connection.query(dbQuery, function(err, res) {
+         connection.query(dbQuery, function(err, result) {
             if(err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
          });
     },
-    updateOne: function(table, cols, vals, cb) {
+    updateOne: function(table, objColVals, condition, cb) {
         var dbQuery = "UPDATE " + table + " SET " + translateSql(objColVals) + " WHERE " + condition;
-        connection.query(dbQuery, function(err, res) {
+        connection.query(dbQuery, function(err, result) {
             if(err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
         });
     },
     deleteOne: function (table, condition, cb) {
         var dbQuery = "DELETE FROM " + table + " WHERE " + condition;
-        connection.query(dbQuery, function(err, res) {
+        connection.query(dbQuery, function(err, result) {
             if(err) {
                 throw err;
             }
-            cb(res);
+            cb(result);
         });
     }
 };
