@@ -16,7 +16,7 @@ function translateSql(ob) {
             if(typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
-            arr.push(key + "=" + value)
+            arr.push(key + "=" + value);
         }
     }
     return arr.toString();
